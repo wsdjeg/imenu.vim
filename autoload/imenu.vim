@@ -1,15 +1,17 @@
 let s:menus = {}
+let s:keys = []
 
 function! imenu#defind(key, menu)
     let s:menus[a:key] = a:menu
-    exe 'vnoremap <silent> ' . a:key . ' "xs<C-R>=imenu#complete("' . a:key . '")<Cr>'
+    call add(s:keys, a:key)
+    exe 'vnoremap <silent> ' . a:key . ' "xs<C-R>=imenu#complete("' . len(s:keys) . '")<Cr>'
 endfunction
 
 
-function! imenu#complete(key) abort
+function! imenu#complete(index) abort
     let list = []
     let select_word = @x
-    let menus = get(s:menus, a:key, [])
+    let menus = get(s:menus, s:keys[a:index - 1], [])
     let g:wsd_menus = menus
     for m in menus
         let item = {}
