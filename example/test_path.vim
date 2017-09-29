@@ -1,3 +1,4 @@
+so autoload/imenu.vim
 let s:menu = []
 
 function! s:file_name(file) abort
@@ -25,3 +26,5 @@ call add(s:menu, {
             \ 'func' : function('s:absolute_path'),
             \ })
 call imenu#defind('<C-p>', s:menu)
+
+"  plugin/imenu.vim
