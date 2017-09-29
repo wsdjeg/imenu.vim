@@ -22,9 +22,3 @@ function! imenu#complete(index) abort
     call complete(col('.'), list)
     return ''
 endfunction
-
-function! Test() abort
-    let g:wsd = s:menus
-    echo s:menus
-endfunction
-  
