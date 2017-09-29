@@ -2,7 +2,7 @@ let s:menus = {}
 
 function! imenu#defind(key, menu)
     let s:menus[a:key] = a:menu
-    exe 'vnoremap <silent> ' . a:key . " \"xs<C-R>=imenu#complete('" . a:key . "<Cr>"
+    exe 'vnoremap <silent> ' . a:key . ' "xs<C-R>=imenu#complete("' . a:key . '")<Cr>'
 endfunction
 
 
