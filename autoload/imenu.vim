@@ -17,6 +17,7 @@ function! imenu#complete(index) abort
         let item = {}
         let item.abbr = m.name
         let item.word = call(m.func, [select_word])
+        let item.dup = 1
         call add(list, item)
     endfor
     call complete(col('.'), list)
